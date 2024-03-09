@@ -1,0 +1,8 @@
+#testenemy
+Sword:2
+Shield:5
+Potion:10
+
+#Enemy2
+Hammer:4
+Axe:3

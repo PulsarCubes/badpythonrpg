@@ -5,6 +5,8 @@ import os
 import rpgclasses as rpg
 import battle
 
+#TODO make a new file full of weapons and enemy types
+
 dropped = False
 inventory = {}
 #simplest class in existence because i need to learn
@@ -17,32 +19,20 @@ def invadd():
     pass
 def printinv():
     print('in your inventory you have ')
-    for key, value in inventory.items():
+    for key, value in player.inventory.items():
         print(f'{key}: {value}')
-def rng(droptable):
-    global dropped
-    global inventory
-    rarities=list(droptable.values())
-    # list out keys and values separately
-    key_list = list(droptable.keys())
-    val_list = list(droptable.values())
-    
-    # print key with val 100
-    
-    
-    for i in rarities:
-        rngsim = random.randint(1,i)
-        position = val_list.index(i)
-        if rngsim == 1:
-            print(f'you dropped {key_list[position]}')
-            inventory[key_list[position]] = inventory.get(key_list[position], 0) + 1
-            dropped = True
-    if not dropped:
-        print('you dropped nothing')
-namechoice = input('Welcome, what would you like your name to be? ')
-player = rpg.character(namechoice,random.randint(1,10),random.randint(1,10),random.randint(1,10),0)
+        
+hands=rpg.weapon('fists',1,1)
 
-clear()
+namechoice = input('Welcome, what would you like your name to be? ')
+player = rpg.character(namechoice,random.randint(1,10),random.randint(1,10),random.randint(1,10),10,hands)
+
+#clear()
+
+testenemy=rpg.enemy(hands,1,1,1,10,'testenemy')
+battle.battle(player,testenemy)
+
+
 print(f'Welcome to the world of Generic Text RPG Name Here, {namechoice}!')
 while True:
     dialogtut = input('''To start, try using these keys to use the menu!
@@ -54,6 +44,7 @@ while True:
         print('nope')
     elif dialogtut == '2':
         print('Great job!')
+        tutorialfinished=True
         break
     elif dialogtut == '3':
         print('nope')
@@ -67,7 +58,7 @@ while tutorialfinished:
                       3 to exit
                 ''')
     if action == '1':
-        if len(inventory<0):
+        if len(player.inventory)==0:
             print('you have nothing')
         else:
             printinv()

@@ -1,0 +1,4 @@
+#testenemy
+Sword:2
+Shield:5
+Potion:10
