@@ -3,8 +3,10 @@
 import random
 import os
 import rpgclasses as rpg
+import battle
+
 dropped = False
-inventory = {1: 'nothing'}
+inventory = {}
 #simplest class in existence because i need to learn
 tutorialfinished=False
 
@@ -58,13 +60,17 @@ while True:
 
 
 while tutorialfinished:
+     
     action = input('''What would you like to do?
                       1 to view inventory
                       2 to view stats
                       3 to exit
                 ''')
     if action == '1':
-        printinv()
+        if len(inventory<0):
+            print('you have nothing')
+        else:
+            printinv()
     elif action == '2':
         print('your stats are: Strength: '+str(player.str) + ' Speed: ' + str(player.spd)+ ' Intelligence: ' + str(player.int)+ ' Defense: ' + str(player.dfn))
     elif action == '3':
