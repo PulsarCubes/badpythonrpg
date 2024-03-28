@@ -1,5 +1,6 @@
 import random as rand
 import os
+from time import sleep
 #move rng/drops to here, add seperate file for drop tables
 #drop tables are in form item:dropchance in form 1/x
 def parse_drop_tables(file_name, enemy):
@@ -62,6 +63,7 @@ def battle(player, enemy):
     
     while player.hp > 0 and enemy.hp > 0:
         # Determine who attacks first based on speed
+        
         if playerspeed >= enemyspeed:
             # Player's turn
             damage = damagecalc(5, playerdamage, enemy)
@@ -75,10 +77,10 @@ def battle(player, enemy):
                             enemydefeated(player,enemy)
                             break
                         
-                        print(f'You hit for {damage}, enemy has {enemy.hp} remaining!')
+                        print(f'You hit for {damage} damage, enemy has {enemy.hp} health remaining!')
                         enemydodgechance += 20
                     else:
-                        print('Enemy blocked attack')
+                        print('Enemy blocked your attack!')
                 else:
                     print('Enemy dodged your attack!')
                     enemydodgechance=0
@@ -89,11 +91,11 @@ def battle(player, enemy):
                         print('You defeated the enemy!')
                         enemydefeated(player,enemy)
                         break
-                    print(f'You hit for {damage}, enemy has {enemy.hp} remaining!')
+                    print(f'You hit for {damage} damage, enemy has {enemy.hp} health remaining!')
                     enemydodgechance += 20
                 else:
-                    print('Enemy blocked attack')
-        
+                    print('Enemy blocked your attack!')
+            sleep(1)
             # Enemy's turn
             damage = damagecalc(5, enemydamage, player)
             if playerdodgechance > 0:
@@ -104,10 +106,10 @@ def battle(player, enemy):
                         if player.hp <= 0:
                             print('You were defeated by the enemy!')
                             break
-                        print(f'You were hit for {damage}, you have {player.hp} remaining!')
+                        print(f'You were hit for {damage} damage, you have {player.hp} health remaining!')
                         playerdodgechance += 20
                     else:
-                        print('You blocked attack')
+                        print('You blocked enemy\'s attack!')
                 else:
                     print('Your dodge was successful!')
                     playerdodgechance=0
@@ -117,10 +119,11 @@ def battle(player, enemy):
                     if player.hp <= 0:
                         print('You were defeated by the enemy!')
                         break
-                    print(f'You were hit for {damage}, you have {player.hp} remaining!')
+                    print(f'You were hit for {damage} damage, you have {player.hp} health remaining!')
                     playerdodgechance += 20
                 else:
-                    print('You blocked attack')
+                    print('You blocked enemy\'s attack!')
+            sleep(1)
         else:
             # Enemy's turn
             damage = damagecalc(5, enemydamage, player)
@@ -132,10 +135,10 @@ def battle(player, enemy):
                         if player.hp <= 0:
                             print('You were defeated by the enemy!')
                             break
-                        print(f'You were hit for {damage}, you have {player.hp} remaining!')
+                        print(f'You were hit for {damage} damage, you have {player.hp} health remaining!')
                         playerdodgechance += 20
                     else:
-                        print('you blocked attack')
+                        print('You blocked enemy\'s attack!')
                 else:
                     print('Your dodge was successful!')
                     playerdodgechance=0
@@ -145,11 +148,11 @@ def battle(player, enemy):
                     if player.hp <= 0:
                         print('You were defeated by the enemy!')
                         break
-                    print(f'You were hit for {damage}, you have {player.hp} remaining!')
+                    print(f'You were hit for {damage} damage, you have {player.hp} health remaining!')
                     playerdodgechance += 20
                 else:
-                    print('you blocked attack')
-            
+                    print('You blocked enemy\'s attack!')
+            sleep(1)
             # Player's turn
             damage = damagecalc(5, playerdamage, enemy)
             if enemydodgechance > 0:
@@ -161,10 +164,10 @@ def battle(player, enemy):
                             print('You defeated the enemy!')
                             enemydefeated(player,enemy)
                             break
-                        print(f'You hit for {damage}, enemy has {enemy.hp} remaining!')
+                        print(f'You hit for {damage} damage, enemy has {enemy.hp} health remaining!')
                         enemydodgechance += 20
                     else:
-                        print('Enemy blocked attack')
+                        print('Enemy blocked your attack!')
                 else:
                     print('Enemy dodged your attack!')
                     enemydodgechance=0
@@ -175,10 +178,11 @@ def battle(player, enemy):
                         print('You defeated the enemy!')
                         enemydefeated(player,enemy)
                         break
-                    print(f'You hit for {damage}, enemy has {enemy.hp} remaining!')
+                    print(f'You hit for {damage} damage, enemy has {enemy.hp} health remaining!')
                     enemydodgechance += 20
                 else:
-                    print('enemy blocked your attack!')
+                    print('Enemy blocked your attack!')
+            sleep(1)
 def enemydefeated(player,enemy):
     dt=parse_drop_tables('drop_tables.txt',enemy.name)
     rng(player,dt)
