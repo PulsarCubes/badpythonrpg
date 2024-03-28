@@ -1,0 +1,40 @@
+plans for the rpg
+
+category is for how soon it needs to be done
+subcategory indicates how significant of a feature
+dash indicates priority level
+
+currently working on:
+come up with more todo stuff here - High
+
+ASAP:
+Major:
+create navigation system - High
+add in character levelling - Mid
+
+Minor:
+add some way to recover from death or health loss - High
+make items and inventory interactions (ie: equipping items and giving items types) - Mid
+create enemies and drop tables - Mid
+allow player to choose where stat points go - Low
+create more items - Low
+add some form of game end screen - Low
+
+
+Somewhat soon:
+Major:
+design and add in actual story - Mid
+
+Minor:
+make battles more engaging - Mid (possibly major depending on scope)
+add in consumable items that could give effects or just heal - Low
+
+
+Future/at some point:
+Major:
+combine classes and other needed functions into one file instead of seperating into classes, battles, and whatever else i have - Mid
+rework battles module to not be so bad - Low
+try to port to micropython - Low
+
+Minor:
+add comments that actually help understand/read code - Low

@@ -1,7 +1,6 @@
 import random as rand
 import os
 from time import sleep
-#move rng/drops to here, add seperate file for drop tables
 #drop tables are in form item:dropchance in form 1/x
 def parse_drop_tables(file_name, enemy):
     file_path = os.path.join(os.getcwd(), file_name)

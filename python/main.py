@@ -5,7 +5,6 @@ import os
 import rpgclasses as rpg
 from battle import *
 from itemsandenemies import *
-from time import sleep
 
 dropped = False
 inventory = {}
@@ -23,15 +22,8 @@ def printinv():
 
 
 namechoice = input('Welcome, what would you like your name to be? ')
-#TODO add speccing system for starter stats instead of randomly generating them
 player = rpg.character(namechoice,random.randint(4,10),random.randint(5,10),random.randint(6,10),10,hands)
 
-#clear()
-
-
-
-#TODO add navigation stuff tut (probably before battle)
-#maybe add levelling system aswell
 
 print(f'Welcome to the world of Generic Text RPG Name Here, {namechoice}!\n')
 while dotutorial != 'y' and dotutorial !='n':
