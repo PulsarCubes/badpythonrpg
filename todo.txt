@@ -4,8 +4,12 @@ category is for how soon it needs to be done
 subcategory indicates how significant of a feature
 dash indicates priority level
 
+done:
+allow player to choose where stat points go
+
 currently working on:
 come up with more todo stuff here - High
+
 
 ASAP:
 Major:
@@ -16,9 +20,9 @@ Minor:
 add some way to recover from death or health loss - High
 make items and inventory interactions (ie: equipping items and giving items types) - Mid
 create enemies and drop tables - Mid
-allow player to choose where stat points go - Low
 create more items - Low
 add some form of game end screen - Low
+allow players to REMOVE points from stats - Low
 
 
 Somewhat soon:
